@@ -3,24 +3,25 @@ public abstract class Person {
     private int age;
 
     public Person(String full_name, int age) {
-        // Constructor
+        this.full_name = full_name;
+        this.age = age;
     }
-
-    public void set_full_name(String full_name) {
-        // set_full_name method
-    }
-
-    public void set_age(int age) {
-        // set_age method
-    }
-
+    
     public String get_full_name() {
-        // get_full_name method
-        return null;
+    	return full_name;
     }
 
     public int get_age() {
-        // get_age method
-        return 0;
+        return age;
     }
+
+    public void set_full_name(String full_name) {
+        this.full_name = full_name;
+    }
+
+    public void set_age(int age) {
+        this.age = age;
+    }
+
+    
 }

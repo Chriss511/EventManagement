@@ -2,6 +2,7 @@ public class Generic_Stack<T> {
     private int top;
     private T[] stack;
 
+    
     public Generic_Stack(int capacity) {
         stack = (T[]) new Object[capacity];
         top = -1;

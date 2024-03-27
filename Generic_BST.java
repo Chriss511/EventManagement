@@ -1,15 +1,18 @@
 public class Generic_BST<T> {
+	
+	// I updated the generic_bst class to create a BST with objects not with generics 
+	// since as explained in the Project2_2024 pdf, the BST class stores event "objects"
+	// these objects will have the information of the event
+	
     private class Node {
-        private String key;
-        private T event_data;
-        private Node left_child;
-        private Node right_child;
+        private Event event;
+        private Node leftChild;
+        private Node rightChild;
 
-        public Node(String key, T event_data) {
-            this.key = key;
-            this.event_data = event_data;
-            this.left_child = null;
-            this.right_child = null;
+        public Node(Event event) {
+            this.event = event;
+            this.leftChild = null;
+            this.rightChild = null;
         }
     }
 
@@ -19,104 +22,94 @@ public class Generic_BST<T> {
         this.root = null;
     }
 
-    public void insert_BST(String key, T event_data) {
-        root = insert_BST(root, key, event_data);
+
+    public void insert(Event event) {
+        root = insert(root, event);
     }
 
-    private Node insert_BST(Node root, String key, T event_data) {
+    private Node insert(Node root, Event event) {
         if (root == null) {
-            return new Node(key, event_data);
+            return new Node(event);
         }
 
-        if (key.compareTo(root.key) < 0) {
-            root.left_child = insert_BST(root.left_child, key, event_data);
-        } else if (key.compareTo(root.key) > 0) {
-            root.right_child = insert_BST(root.right_child, key, event_data);
+        if (event.getEvent_name().compareTo(root.event.getEvent_name()) < 0) {
+            root.leftChild = insert(root.leftChild, event);
+        } else if (event.getEvent_name().compareTo(root.event.getEvent_name()) > 0) {
+            root.rightChild = insert(root.rightChild, event);
         }
 
         return root;
     }
 
-    public T search_BST(String key) {
-        return search_BST(root, key);
+    public Event search(String eventName) {
+        return search(root, eventName);
     }
 
-    private T search_BST(Node root, String key) {
-        if (root == null || root.key.equals(key)) {
-            if (root != null)
-                return root.event_data;
-            return null;
+    private Event search(Node root, String eventName) {
+        if (root == null || root.event.getEvent_name().equals(eventName)) {
+            return root != null ? root.event : null;
         }
 
-        if (key.compareTo(root.key) < 0) {
-            return search_BST(root.left_child, key);
+        if (eventName.compareTo(root.event.getEvent_name()) < 0) {
+            return search(root.leftChild, eventName);
         } else {
-            return search_BST(root.right_child, key);
+            return search(root.rightChild, eventName);
         }
     }
 
-    public void display_BST() {
-        display_BST(root);
+    public void display() {
+        display(root);
     }
 
-    private void display_BST(Node root) {
+    private void display(Node root) {
         if (root != null) {
-            display_BST(root.left_child);
-            System.out.print(root.key + ":" + root.event_data + " ");
-            display_BST(root.right_child);
+            display(root.leftChild);
+            System.out.println(root.event); // Assuming Event class overrides toString()
+            display(root.rightChild);
         }
     }
 
-    public void delete(String key) {
-        root = delete(root, key);
+    
+    // DELETION CODE REFERENCED FROM  https://medium.com/swlh/java-how-to-delete-a-node-in-binary-search-tree-aa2d4befe728
+    // But except using key variable, our key is the eventName as requested in the project requirements.
+    
+    public void delete(String eventName) {
+        root = delete(root, eventName);
     }
 
-    private Node delete(Node root, String key) {
+    private Node delete(Node root, String eventName) {
         if (root == null) {
             return root;
         }
 
-        if (key.compareTo(root.key) < 0) {
-            root.left_child = delete(root.left_child, key);
-        } else if (key.compareTo(root.key) > 0) {
-            root.right_child = delete(root.right_child, key);
+        if (eventName.compareTo(root.event.getEvent_name()) < 0) {
+            root.leftChild = delete(root.leftChild, eventName);
+        } else if (eventName.compareTo(root.event.getEvent_name()) > 0) {
+            root.rightChild = delete(root.rightChild, eventName);
         } else {
-            if (root.left_child == null) {
-                return root.right_child;
-            } else if (root.right_child == null) {
-                return root.left_child;
+            if (root.leftChild == null) {
+                return root.rightChild;
+            } else if (root.rightChild == null) {
+                return root.leftChild;
             }
 
-            root.key = min_value(root.right_child);
-            root.right_child = delete(root.right_child, root.key);
+            // Node with two children: Get the inorder successor (smallest in the right subtree)
+            root.event = minValue(root.rightChild);
+
+            // Delete the inorder successor
+            root.rightChild = delete(root.rightChild, root.event.getEvent_name());
         }
 
         return root;
     }
 
-    private String min_value(Node root) {
-        String minv = root.key;
-        while (root.left_child != null) {
-            minv = root.left_child.key;
-            root = root.left_child;
+    private Event minValue(Node root) {
+        Event minEvent = root.event;
+        while (root.leftChild != null) {
+            minEvent = root.leftChild.event;
+            root = root.leftChild;
         }
-        return minv;
+        return minEvent;
     }
-/*
-    public T[] check_completed_BST() {
-        List<T> completedEventsList = new ArrayList<>();
-        check_completed_BST(root, completedEventsList);
-        return completedEventsList;
-    }
-
-    private void check_completed_BST(Node root, List<T> completedEventsList) {
-        if (root != null) {
-            check_completed_BST(root.left_child, completedEventsList);
-            if (root.event_data.check_completed_Event()) {
-                completedEventsList.add(root.event_data);
-            }
-            check_completed_BST(root.right_child, completedEventsList);
-        }
-    }*/
 }
 
