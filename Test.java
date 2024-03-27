@@ -1,37 +1,37 @@
+import java.util.Scanner;
+
 public class Test {
     private Event[] temp_completed;
     private String temp_file_text;
 
-    public void Insert_event() {
-        // Insert_event method
+    // I Expect it to be used 
+    public void insert_event() {
     }
 
-    public void delete_comp_event() {
-        // delete_comp_event method
+    public String delete_comp_event() {
     }
 
     public void display_comp_event() {
-        // display_comp_event method
     }
 
     public void register() {
-        // register method
     }
 
     public void un_register() {
-        // un_register method
     }
 
     public void write_file_comp(String text) {
-        // write_file_comp method
     }
 
-    public void print_file_comp() {
-        // print_file_comp method
-    }
-
+    // I expect this to be used as a conformation that everything executed
+    // it will ask to press enter(to let user to read the output)
+    // and add a bunch of space(for readibility)
     public void acknowledge(String message) {
-        // acknowledge method
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(message);
+        System.out.println("Press Enter to continue...");
+        scanner.nextLine();
+        System.out.print("\n\n\n\n\n\n");
     }
 }
 

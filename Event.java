@@ -16,43 +16,43 @@ public class Event {
        this.max_capacity = max_capacity;
     }
     
-    public String getEvent_name() {
+    public String get_event_name() {
 		return event_name;
 	}
 
-	public void setEvent_name(String event_name) {
+	public void set_event_name(String event_name) {
 		this.event_name = event_name;
 	}
 
-	public Date getEvent_date() {
+	public Date get_event_date() {
 		return event_date;
 	}
 
-	public void setEvent_date(Date event_date) {
+	public void set_event_date(Date event_date) {
 		this.event_date = event_date;
 	}
 
-	public String getTime() {
+	public String get_time() {
 		return time;
 	}
 
-	public void setTime(String time) {
+	public void set_time(String time) {
 		this.time = time;
 	}
 
-	public String getLocation() {
+	public String get_location() {
 		return location;
 	}
 
-	public void setLocation(String location) {
+	public void se_tLocation(String location) {
 		this.location = location;
 	}
 
-	public int getMax_capacity() {
+	public int get_max_capacity() {
 		return max_capacity;
 	}
 
-	public void setMax_capacity(int max_capacity) {
+	public void set_max_capacity(int max_capacity) {
 		this.max_capacity = max_capacity;
 	}
 	
