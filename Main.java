@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Generic_BST event_BST = new Generic_BST();
         
         System.out.println("<><><><><><><><><><><><><><><><>");
         System.out.println("Enter your personal information");
@@ -27,7 +26,7 @@ public class Main {
             // I Expect us getting an input that corespons to one or more methods
             // from Test class, this methods will use other methods from 
             // other classes inside of them, main.java cares about the flow not about implementation
-            // { DO NOT MAKE AND/OR USE ANYTHING EXEPT FOR TEST OBJ }
+            // { DO NOT MAKE AND/OR USE ANYTHING EXEPT FOR TEST OBJ(action) }
             switch (imp_user_choice) {
                 case "a":
                     action.insert_event();
@@ -52,6 +51,8 @@ public class Main {
                     break;
 
                 case "f":
+                    // we sould probably create a function that will clear the canseled_events.txt file content
+                    // but it is optional
                     loop_var = false;
                     break;
 
