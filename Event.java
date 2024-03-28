@@ -8,6 +8,7 @@ public class Event {
     private String time;
     private String location;
     private int max_capacity;
+    // why did you comment them out???
     //private Generic_Stack participant_list;
     //private Generic_Stack cancellation_list;
 
@@ -56,39 +57,36 @@ public class Event {
     }
 
     public void set_max_capacity(int max_capacity) {
-      this.max_capacity = max_capacity;
+        this.max_capacity = max_capacity;
     }
     
     
-/*
+    // make_key probably can be removed
+    /*
     public String make_key() {
-        // make_key method
         return null;
     }*/
-
-	
-	/*
-    private boolean check_completed_Event(Event event) {
-        // check_completed_Event method
-        return false;
-    }*/
-
-	/*
-    public String get_event_info_list(Event event) {
-        // get_event_info_list method
-        return null;
+    // I Expect it to be used by check_completed_BST() as a means
+    // of creating array that consists of events that are completed
+    public boolean check_completed_Event(Event event) {
+        LocalDate currentDate = LocalDate.now();
+        if (event.get_event_date().isEqual(currentDate) || event.get_event_date().isBefore(currentDate)){
+            return true;
+        }else{
+            return false;
+        }
     }
-
+    public String get_event_info_list() {
+        return get_event_name();
+    }
+    /*
     public void add_to_participant_list() {
-        // add_to_participant_list method
     }
 
     public void remove_from_participant_list() {
-        // remove_from_participant_list method
     }
 
     public void add_to_cancellation_list() {
-        // add_to_cancellation_list method
     }
     */
 }

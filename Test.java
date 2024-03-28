@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Test {
-    private Event[] temp_completed;
+    private String[] temp_completed;
     private String temp_file_text;
     Generic_BST event_BST = new Generic_BST();
 
@@ -53,8 +53,17 @@ public class Test {
     // the loop and stuff is describing what check_competed_BST() is going to have insidet>   
     // it will retutn a sting that will be consists of information of evets
     // that is than going to be used by write_file_comp()
-    // {> ALEX <}
+    // TODO: {> ALEX <}
     public String delete_comp_event() {
+      Event[] comp_event_list = event_BST.check_completed_BST();
+      if (comp_event_list[0] != null){
+          for(int i = 0; i < comp_event_list.length; i++){
+              System.out.println(comp_event_list[i].get_event_name());
+              //temp_completed[i] = comp_event_list[i].get_event_info_list();
+          }
+
+        //System.out.println(temp_completed[0]);
+      }
       
       return "test";
     }
@@ -76,7 +85,6 @@ public class Test {
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            // Read each line from the file and print it
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);
@@ -84,7 +92,6 @@ public class Test {
 
         bufferedReader.close();
         } catch (IOException e) {
-            // Handle file reading errors
             e.printStackTrace();
         }
     }
