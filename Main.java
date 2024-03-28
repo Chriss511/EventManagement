@@ -8,26 +8,25 @@ public class Main {
         System.out.println("<><><><><><><><><><><><><><><><>");
         System.out.println("Enter your personal information");
         System.out.println("Full name:");
-        String imp_user_name = scanner.nextLine();
+        String inp_user_name = scanner.nextLine();
         System.out.println("age:");
-        int imp_user_age = scanner.nextInt();
+        int inp_user_age = scanner.nextInt();
         scanner.nextLine(); // because when you press enter it create a "new line" character that brakes some things, Java I know...
         
         // UML is wrong, because I forgot that Person is an abstract class
         // so we just get this info(that will always be the same) for later use
     
+        Test action = new Test();
         boolean loop_var = true;
         while (loop_var) {
             display_options();
-            String imp_user_choice = scanner.nextLine();
-
-            Test action = new Test();
+            String inp_user_choice = scanner.nextLine();
 
             // I Expect us getting an input that corespons to one or more methods
             // from Test class, this methods will use other methods from 
             // other classes inside of them, main.java cares about the flow not about implementation
             // { DO NOT MAKE AND/OR USE ANYTHING EXEPT FOR TEST OBJ(action) }
-            switch (imp_user_choice) {
+            switch (inp_user_choice) {
                 case "a":
                     action.insert_event();
                     action.acknowledge("Create event successfully");

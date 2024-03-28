@@ -1,4 +1,4 @@
-public class Generic_BST<T> {
+public class Generic_BST {
 	
 	// I updated the generic_bst class to create a BST with objects not with generics 
 	// since as explained in the Project2_2024 pdf, the BST class stores event "objects"
@@ -32,9 +32,9 @@ public class Generic_BST<T> {
             return new Node(event);
         }
 
-        if (event.getEvent_name().compareTo(root.event.getEvent_name()) < 0) {
+        if (event.get_event_name().compareTo(root.event.get_event_name()) < 0) {
             root.leftChild = insert(root.leftChild, event);
-        } else if (event.getEvent_name().compareTo(root.event.getEvent_name()) > 0) {
+        } else if (event.get_event_name().compareTo(root.event.get_event_name()) > 0) {
             root.rightChild = insert(root.rightChild, event);
         }
 
@@ -46,11 +46,11 @@ public class Generic_BST<T> {
     }
 
     private Event search(Node root, String eventName) {
-        if (root == null || root.event.getEvent_name().equals(eventName)) {
+        if (root == null || root.event.get_event_name().equals(eventName)) {
             return root != null ? root.event : null;
         }
 
-        if (eventName.compareTo(root.event.getEvent_name()) < 0) {
+        if (eventName.compareTo(root.event.get_event_name()) < 0) {
             return search(root.leftChild, eventName);
         } else {
             return search(root.rightChild, eventName);
@@ -64,7 +64,7 @@ public class Generic_BST<T> {
     private void display(Node root) {
         if (root != null) {
             display(root.leftChild);
-            System.out.println(root.event); // Assuming Event class overrides toString()
+            System.out.println(root.event.get_event_name()); // Assuming Event class overrides toString()
             display(root.rightChild);
         }
     }
@@ -82,9 +82,9 @@ public class Generic_BST<T> {
             return root;
         }
 
-        if (eventName.compareTo(root.event.getEvent_name()) < 0) {
+        if (eventName.compareTo(root.event.get_event_name()) < 0) {
             root.leftChild = delete(root.leftChild, eventName);
-        } else if (eventName.compareTo(root.event.getEvent_name()) > 0) {
+        } else if (eventName.compareTo(root.event.get_event_name()) > 0) {
             root.rightChild = delete(root.rightChild, eventName);
         } else {
             if (root.leftChild == null) {
@@ -97,7 +97,7 @@ public class Generic_BST<T> {
             root.event = minValue(root.rightChild);
 
             // Delete the inorder successor
-            root.rightChild = delete(root.rightChild, root.event.getEvent_name());
+            root.rightChild = delete(root.rightChild, root.event.get_event_name());
         }
 
         return root;

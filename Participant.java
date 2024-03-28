@@ -5,12 +5,8 @@ public class Participant extends Person {
     private String payment_method;
 
     
-    public Participant(String email_address, int phone_number, String payment_method) {
-        this.full_name = full_name;
-        this.age = age;
-        this.email_address = email_address;
-        this.phone_number = phone_number;
-        this.payment_method = payment_method;
+    public Participant(String full_name, int age, String email_address, int phone_number, String payment_method) {
+        super(full_name, age);
     }
 
     public void set_email(String email_address) {
