@@ -8,15 +8,16 @@ public class Event {
     private String time;
     private String location;
     private int max_capacity;
-    // why did you comment them out???
-    //private Generic_Stack participant_list;
-    //private Generic_Stack cancellation_list;
+    // I already have code that need them implemented so don't comment them out
+    private Generic_Stack participant_list = new Generic_Stack<>(this.max_capacity); 
+    private Generic_Stack cancellation_list = new Generic_Stack<>(this.max_capacity);
 
-    public Event(String event_name, LocalDate event_date, int time, String location, int max_capacity) {
-       this.event_name = event_name;
-       this.event_date = event_date;
-       this.location = location;
-       this.max_capacity = max_capacity;
+    public Event(String event_name, LocalDate event_date, String time, String location, int max_capacity) {
+      this.event_name = event_name;
+      this.event_date = event_date;
+      this.location = location;
+      this.max_capacity = max_capacity;
+      this.time = time;
 
     }
     
@@ -59,6 +60,7 @@ public class Event {
     public void set_max_capacity(int max_capacity) {
         this.max_capacity = max_capacity;
     }
+
     
     
     // make_key probably can be removed
@@ -77,7 +79,24 @@ public class Event {
         }
     }
     public String get_event_info_list() {
-        return get_event_name();
+        StringBuilder temp_build_registered = new StringBuilder();
+        StringBuilder temp_build_unregistered = new StringBuilder();
+        
+        while (!(this.participant_list.isEmpty())) {
+            temp_build_registered.append(this.participant_list.pop());
+        }
+        while (!(this.cancellation_list.isEmpty())) {
+            temp_build_unregistered.append(this.cancellation_list.pop()); 
+        }
+        
+        String temp_registered = temp_build_registered.toString();
+        String temp_unregistered = temp_build_unregistered.toString();
+
+        return "info:\n" + get_event_name() + "\n" 
+          + "starts at " + get_event_date() + " at " + get_time() + "\n" 
+          + "located at " + get_location() + " with a capacity of " + get_max_capacity() + "\n"
+          + "registered people: " + temp_registered + "\n"
+          + "unegistered people: " + temp_unregistered + "\n";
     }
     /*
     public void add_to_participant_list() {

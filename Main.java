@@ -13,6 +13,7 @@ public class Main {
         int inp_user_age = scanner.nextInt();
         scanner.nextLine(); // because when you press enter it create a "new line" character that brakes some things, Java I know...
         
+        
         // UML is wrong, because I forgot that Person is an abstract class
         // so we just get this info(that will always be the same) for later use
     
@@ -32,8 +33,7 @@ public class Main {
                     action.acknowledge("Create event successfully");
                     break;
                 case "b":
-                    String text_for_file = action.delete_comp_event();
-                    action.write_file_comp(text_for_file);
+                    action.delete_comp_event();
                     action.acknowledge("Removed completed events successfully");
                     break;
                 case "c":
