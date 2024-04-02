@@ -5,17 +5,6 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("<><><><><><><><><><><><><><><><>");
-        System.out.println("Enter your personal information");
-        System.out.println("Full name:");
-        String inp_user_name = scanner.nextLine();
-        System.out.println("age:");
-        int inp_user_age = scanner.nextInt();
-        scanner.nextLine(); // because when you press enter it create a "new line" character that brakes some things, Java I know...
-        
-        
-        // UML is wrong, because I forgot that Person is an abstract class
-        // so we just get this info(that will always be the same) for later use
     
         Test action = new Test();
         boolean loop_var = true;

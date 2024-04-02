@@ -9,8 +9,8 @@ public class Event {
     private String location;
     private int max_capacity;
     // I already have code that need them implemented so don't comment them out
-    private Generic_Stack participant_list = new Generic_Stack<>(this.max_capacity); 
-    private Generic_Stack cancellation_list = new Generic_Stack<>(this.max_capacity);
+    private Generic_Stack<Participant> participant_list;  
+    private Generic_Stack<Participant> cancellation_list; 
 
     public Event(String event_name, LocalDate event_date, String time, String location, int max_capacity) {
       this.event_name = event_name;
@@ -21,6 +21,9 @@ public class Event {
 
     }
     
+    public Generic_Stack<Participant> get_part_list(){
+      return participant_list; 
+    }
     public String get_event_name() {
       return event_name;
     }
@@ -97,15 +100,26 @@ public class Event {
           + "located at " + get_location() + " with a capacity of " + get_max_capacity() + "\n"
           + "registered people: " + temp_registered + "\n"
           + "unegistered people: " + temp_unregistered + "\n";
+          // TODO fix the fact that after pop we get a pointer to memory and not a rerevant data
     }
-    /*
-    public void add_to_participant_list() {
+    public void update_capacity(){
+         this.participant_list = new Generic_Stack(this.max_capacity);
+         this.cancellation_list = new Generic_Stack(this.max_capacity);
+    }
+    public void add_to_participant_list(Participant new_part) {
+        participant_list.push(new_part);
     }
 
-    public void remove_from_participant_list() {
+    private Participant remove_from_participant_list() {
+        return participant_list.pop();
     }
 
     public void add_to_cancellation_list() {
+        cancellation_list.push(remove_from_participant_list());
+}
+    public void show_all_participants(){
+    // TODO
+     // use show() from Generic_Stack 
+    // right now show() will show addresses 
     }
-    */
 }

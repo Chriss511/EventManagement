@@ -28,8 +28,10 @@ public class Generic_Stack<T> {
     }
 
     public void show() {
+        // TODO
+        // find a way to actually show content maybe???
         for (T n : stack) {
-            System.out.print(n + " ");
+            System.out.printf(n + " ");
         }
         System.out.println();
     }

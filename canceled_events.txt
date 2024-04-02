@@ -2,5 +2,5 @@ info:
 test
 starts at 2005-01-01 at 2
 located at 2 with a capacity of 2
-registered people: 
+registered people: Participant@5a07e868Participant@76ed5528
 unegistered people: 
