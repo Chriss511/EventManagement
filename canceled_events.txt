@@ -1,12 +1,6 @@
 info:
 test
-starts at 2001-01-01 at 1
-located at 1 with a capacity of 1
-registered people: 
-unegistered people: 
-info:
-test2
-starts at 2005-01-05 at 1
-located at 2 with a capacity of 3
+starts at 2005-01-01 at 2
+located at 2 with a capacity of 2
 registered people: 
 unegistered people: 
