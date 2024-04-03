@@ -292,7 +292,7 @@ public class Test {
                     }
                 }
                                   
-                scanner.nextLine(); // Consume newline left-over
+                //scanner.nextLine(); // Consume newline left-over
                 
                 String inp_user_addr;
                 
@@ -323,6 +323,7 @@ public class Test {
                     System.out.println("a) Cash");
                     System.out.println("b) Card");
                     System.out.println("c) E-transfer");
+                    System.out.println("/n Enter selection: ");
                     inp_user_pay = scanner.nextLine().trim().toLowerCase();
                     if (inp_user_pay.equals("a") || inp_user_pay.equals("b") || inp_user_pay.equals("c")) {
                         break;
