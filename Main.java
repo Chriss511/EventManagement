@@ -18,8 +18,7 @@ public class Main {
             // { DO NOT MAKE AND/OR USE ANYTHING EXEPT FOR TEST OBJ(action) }
             switch (inp_user_choice) {
                 case "a":
-                    action.insert_event();
-                    action.acknowledge("Create event successfully");
+                    action.insert_event();           
                     break;
                 case "b":
                     if (!action.delete_comp_event()) {
@@ -31,17 +30,13 @@ public class Main {
                     break;
                 case "c":
                     action.display_comp_event();
-                    action.acknowledge("Got all completed events successfully");
+                    action.acknowledge("Got all completed events successfully.");
                     break;
                 case "d":
-                    if(!action.register()) {
-                    action.acknowledge("Register to an event successfully");
-                    }
+                    action.register();
                     break;
-                case "e":
-                	
-                    action.un_register();
-                    action.acknowledge("Cancel a registration successfully");
+                case "e":                	
+                    action.un_register();                                       
                     break;
 
                 case "f":

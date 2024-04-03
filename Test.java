@@ -90,6 +90,8 @@ public class Test {
             event_BST.insert(event);  
             //event_BST.display(); // for debug
             
+            System.out.println("\nEvent creation successfull.");
+            
         } catch (Exception e) {
             System.out.println("Invalid date format. Please enter the date in the format YYYY-MM-DD.");
         }
@@ -249,7 +251,7 @@ public class Test {
     
     
    
-    public boolean register() {
+    public void register() {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -326,12 +328,14 @@ public class Test {
                 }
                        
                 Participant new_part = new Participant(inp_user_name, inp_user_age, inp_user_addr, inp_user_num, inp_user_pay);
-                choice_event.add_to_participant_list(new_part);
+                if(choice_event.add_to_participant_list(new_part)) {
+                	System.out.println("\nRegistration successfull");
+                }else System.out.println("\nFail to register.");
    
-                return true;            
+                break;          
             } else {
                 System.out.println("\nWrong input. Please try again.");
-                return false; // by adding a brake here at least the user is able to back when the input is null
+                break; // by adding a brake here at least the user is able to back when the input is null
             }
         }       
           
@@ -352,20 +356,21 @@ public class Test {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Event available to cancel:");
+        	System.out.println("\n<><><><><><><><><><><><><><><><><>");
+            System.out.println("Your currently registered to events:");
             event_BST.display();
             System.out.printf("\nChoose one: ");
             String inp_event = scanner.nextLine();
             if (event_BST.search(inp_event) != null) {
                 Event choice_event = event_BST.search(inp_event);
                 choice_event.add_to_cancellation_list();
-                break;
+                System.out.println("Cancelation to event -" + choice_event.get_event_name() + "- successfull.");
             } else {
-                System.out.println("Wrong input. Please try again.");
+                System.out.println("\nWrong input. Please try again.");
+                break;
             }
         }       
- 
-    }
+     }
 
     // I Expect this to be used as a conformation that everything executed
     // it will ask to press enter(to let user to read the output)

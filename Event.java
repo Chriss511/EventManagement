@@ -107,8 +107,10 @@ public class Event {
          this.participant_list = new Generic_Stack(this.max_capacity);
          this.cancellation_list = new Generic_Stack(this.max_capacity);
     }
-    public void add_to_participant_list(Participant new_part) {
-        participant_list.push(new_part);
+    public boolean add_to_participant_list(Participant new_part) {
+       if(participant_list.push(new_part)) {
+    	   return true;
+       }else {return false;}
     }
 
     private Participant remove_from_participant_list() {

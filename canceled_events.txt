@@ -1,6 +1,6 @@
 info:
-s
-starts at 2005-02-10 at 10:03
+asd
+starts at 2001-01-01 at 13:13
 located at asd with a capacity of 1
-registered people: 
+registered people: Participant@66a29884
 unegistered people: 

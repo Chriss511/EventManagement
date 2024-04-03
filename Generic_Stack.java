@@ -8,23 +8,26 @@ public class Generic_Stack<T> {
         top = -1;
     }
 
-    public void push(T data) {
+    public boolean push(T data) {
         if (top == stack.length - 1) {
         	System.out.println("Participation list is full. Can't register");
-        	return;
+        	return false;
             //throw new IllegalStateException("Stack is full");
             
         }
         stack[++top] = data;
+        return true;
     }
     
-
+    ///PENDING: WHEN PARTICIPATION IS LIST IS EMPTY and there is nothing to delete from the un_register function
+    // I need to fix the ""Cancelation to event -" + choice_event.get_event_name() + "- successfull.");" that still shows up
     public T pop() {
-        if (isEmpty()) {
-            throw new IllegalStateException("Stack is empty");
-        }
+        if (!isEmpty()) {      
+            return stack[top--];
+        }else {System.out.println("Participants list is empty");
         // no need to assign a value on top as in an example video
-        return stack[top--];
+		return null; 
+        }
     }
 
     public T peek() {
