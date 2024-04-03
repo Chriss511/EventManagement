@@ -119,7 +119,7 @@ public class Test {
     // it will retutn a sting that will be consists of information of evets
     // that is than going to be used by write_file_comp()
     // {> ALEX <} :made:
-    boolean noCompletedFlag = false;
+
     
     public boolean delete_comp_event() {
         Event[] comp_event_list = event_BST.check_completed_BST();
@@ -135,15 +135,10 @@ public class Test {
             }
 
             String file_text = this.temp_file_text.toString();
-            write_file_comp(file_text);
-            
-            noCompletedFlag = false;
-        	return noCompletedFlag;
-        	
+            write_file_comp(file_text);         
+        	return false;        	
         } else {
-        	noCompletedFlag = true;
-        	return noCompletedFlag;
-            //System.out.println("No completed events to delete.");
+        	return true;
         }
     }
 
@@ -253,15 +248,13 @@ public class Test {
     }*/
     
     
-    
-    boolean regFailFlag = false;
+   
     public boolean register() {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
         	System.out.println("\n<><><><><><><><><><><><><><><><>");
             System.out.println("Event(s) available:");
-            System.out.println("\n");
             
             event_BST.display();
             
@@ -323,7 +316,7 @@ public class Test {
                     System.out.println("a) Cash");
                     System.out.println("b) Card");
                     System.out.println("c) E-transfer");
-                    System.out.println("/n Enter selection: ");
+                    System.out.print("\nEnter selection: ");
                     inp_user_pay = scanner.nextLine().trim().toLowerCase();
                     if (inp_user_pay.equals("a") || inp_user_pay.equals("b") || inp_user_pay.equals("c")) {
                         break;
@@ -331,16 +324,14 @@ public class Test {
                         System.out.println("Invalid choice. Please select a valid payment method (a, b, or c).");
                     }
                 }
-                
-                
+                       
                 Participant new_part = new Participant(inp_user_name, inp_user_age, inp_user_addr, inp_user_num, inp_user_pay);
                 choice_event.add_to_participant_list(new_part);
-            	regFailFlag = false;
-                return regFailFlag;            
+   
+                return true;            
             } else {
-            	regFailFlag = true;
                 System.out.println("\nWrong input. Please try again.");
-                return regFailFlag; // by adding a brake here at least the user is able to back when the input is null
+                return false; // by adding a brake here at least the user is able to back when the input is null
             }
         }       
           
