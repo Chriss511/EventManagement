@@ -12,7 +12,7 @@ public class Main {
             display_options();
             String inp_user_choice = scanner.nextLine();
 
-            // I Expect us getting an input that corespons to one or more methods
+            // I Expect us getting an input that corresponds to one or more methods
             // from Test class, this methods will use other methods from 
             // other classes inside of them, main.java cares about the flow not about implementation
             // { DO NOT MAKE AND/OR USE ANYTHING EXEPT FOR TEST OBJ(action) }
@@ -22,18 +22,24 @@ public class Main {
                     action.acknowledge("Create event successfully");
                     break;
                 case "b":
-                    action.delete_comp_event();
+                    if (!action.delete_comp_event()) {
+                 
                     action.acknowledge("Removed completed events successfully");
+                    }else {
+                    	action.acknowledge("There are no completed events to remove.");
+                    }
                     break;
                 case "c":
                     action.display_comp_event();
                     action.acknowledge("Got all completed events successfully");
                     break;
                 case "d":
-                    action.register();
+                    if(!action.register()) {
                     action.acknowledge("Register to an event successfully");
+                    }
                     break;
                 case "e":
+                	
                     action.un_register();
                     action.acknowledge("Cancel a registration successfully");
                     break;
@@ -45,21 +51,23 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Wrong input");
+                    System.out.println("\nWrong input");
                     break;
             }
         }
     }
   public static void display_options(){
-      System.out.println("<><><><><><><><><><><><><><><><>");
-      System.out.println("Enter an option:");
+      System.out.println("\n<><><><><><><><><><><><><><><><><>");
+      System.out.println("<><><>EVENT MANAGEMENT SYSTEM<><><>");
+      System.out.println("<><><><><><><><><><><><><><><><><>");
       System.out.println("(a) Create a new event");
-      System.out.println("(b) Remove all completed events");
+      System.out.println("(b) Remove complete event");
       System.out.println("(c) Show all completed events");
       System.out.println("(d) Register to an event");
       System.out.println("(e) Cancel a registration");
       System.out.println("(f) Exit the programm");
       System.out.println("<><><><><><><><><><><><><><><><>");
+      System.out.print("\nEnter selection: ");
   }
 }
 

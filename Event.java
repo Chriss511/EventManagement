@@ -18,7 +18,6 @@ public class Event {
       this.location = location;
       this.max_capacity = max_capacity;
       this.time = time;
-
     }
     
     public Generic_Stack<Participant> get_part_list(){
@@ -71,6 +70,7 @@ public class Event {
     public String make_key() {
         return null;
     }*/
+    
     // I Expect it to be used by check_completed_BST() as a means
     // of creating array that consists of events that are completed
     public boolean check_completed_Event(Event event) {
@@ -81,6 +81,7 @@ public class Event {
             return false;
         }
     }
+    
     public String get_event_info_list() {
         StringBuilder temp_build_registered = new StringBuilder();
         StringBuilder temp_build_unregistered = new StringBuilder();
@@ -118,8 +119,11 @@ public class Event {
         cancellation_list.push(remove_from_participant_list());
 }
     public void show_all_participants(){
-    // TODO
+    
+		// TODO
      // use show() from Generic_Stack 
+    	//Generic_Stack.show();
     // right now show() will show addresses 
+    	
     }
 }

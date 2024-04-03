@@ -9,8 +9,15 @@ public class Generic_Stack<T> {
     }
 
     public void push(T data) {
+        if (top == stack.length - 1) {
+        	System.out.println("Participation list is full. Can't register");
+        	return;
+            //throw new IllegalStateException("Stack is full");
+            
+        }
         stack[++top] = data;
     }
+    
 
     public T pop() {
         if (isEmpty()) {
@@ -39,5 +46,17 @@ public class Generic_Stack<T> {
     public boolean isEmpty() {
         return top == -1;
     }
+    
+ /* trying to implement to check for duplicate participants 
+    public boolean isParticipantExist(T[] participants, String email) {
+        for (T participant : participants) {
+            if (participant.get_email().equals(email)) {
+            	System.out.println("Failed. Email already exists.");
+                return true; 
+            }
+        }
+        return false; 
+    }
+    */
 }
 
