@@ -328,7 +328,9 @@ public class Test {
                 }
                        
                 Participant new_part = new Participant(inp_user_name, inp_user_age, inp_user_addr, inp_user_num, inp_user_pay);
+                
                 if(choice_event.add_to_participant_list(new_part)) {
+                	
                 	System.out.println("\nRegistration successfull");
                 }else System.out.println("\nFail to register.");
    
@@ -357,14 +359,18 @@ public class Test {
 
         while (true) {
         	System.out.println("\n<><><><><><><><><><><><><><><><><>");
-            System.out.println("Your currently registered to events:");
+            System.out.println("Select an event you are currently registered to:");
+            
             event_BST.display();
+            
             System.out.printf("\nChoose one: ");
             String inp_event = scanner.nextLine();
+            
             if (event_BST.search(inp_event) != null) {
                 Event choice_event = event_BST.search(inp_event);
                 choice_event.add_to_cancellation_list();
                 System.out.println("Cancelation to event -" + choice_event.get_event_name() + "- successfull.");
+                break;
             } else {
                 System.out.println("\nWrong input. Please try again.");
                 break;

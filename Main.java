@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+    	
+    	
 
         Scanner scanner = new Scanner(System.in);
         
@@ -43,6 +45,7 @@ public class Main {
                     // we sould probably create a function that will clear the canseled_events.txt file content
                     // but it is optional
                     loop_var = false;
+                    System.out.println("Good bye.");
                     break;
 
                 default:
@@ -56,9 +59,9 @@ public class Main {
       System.out.println("<><><>EVENT MANAGEMENT SYSTEM<><><>");
       System.out.println("<><><><><><><><><><><><><><><><><>");
       System.out.println("(a) Create a new event");
-      System.out.println("(b) Remove complete event");
-      System.out.println("(c) Show all completed events");
-      System.out.println("(d) Register to an event");
+      System.out.println("(b) Remove past Events from the BST");
+      System.out.println("(c) Show all past events that where removed from BST by option (b)");
+      System.out.println("(d) Register to a future event");
       System.out.println("(e) Cancel a registration");
       System.out.println("(f) Exit the programm");
       System.out.println("<><><><><><><><><><><><><><><><>");

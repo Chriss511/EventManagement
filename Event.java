@@ -8,7 +8,7 @@ public class Event {
     private String time;
     private String location;
     private int max_capacity;
-    // I already have code that need them implemented so don't comment them out
+    
     private Generic_Stack<Participant> participant_list;  
     private Generic_Stack<Participant> cancellation_list; 
 
@@ -23,6 +23,7 @@ public class Event {
     public Generic_Stack<Participant> get_part_list(){
       return participant_list; 
     }
+    
     public String get_event_name() {
       return event_name;
     }
@@ -63,8 +64,7 @@ public class Event {
         this.max_capacity = max_capacity;
     }
 
-    
-    
+       
     // make_key probably can be removed
     /*
     public String make_key() {

@@ -1,6 +1,12 @@
 info:
-asd
-starts at 2001-01-01 at 13:13
-located at asd with a capacity of 1
-registered people: Participant@66a29884
+awf
+starts at 2001-01-01 at 13:14
+located at afafa with a capacity of 1
+registered people: 
+unegistered people: 
+info:
+qwe
+starts at 2000-01-01 at 13:13
+located at adqw with a capacity of 1
+registered people: qfqfqfq
 unegistered people: 

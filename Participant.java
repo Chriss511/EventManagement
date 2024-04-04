@@ -42,8 +42,8 @@ public class Participant extends Person {
         // get_payment method
         return null;
     }
-    
-
+   
+   
 }
 
 

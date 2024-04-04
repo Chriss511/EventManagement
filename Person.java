@@ -7,10 +7,12 @@ public abstract class Person {
         this.age = age;
     }
     
+    
     public String get_full_name() {
     	return full_name;
     }
-
+    
+ 
     public int get_age() {
         return age;
     }
@@ -23,5 +25,9 @@ public abstract class Person {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return get_full_name(); 
+    }
     
 }
