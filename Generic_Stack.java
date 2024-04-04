@@ -19,8 +19,6 @@ public class Generic_Stack<T> {
         return true;
     }
     
-    ///PENDING: WHEN PARTICIPATION IS LIST IS EMPTY and there is nothing to delete from the un_register function
-    // I need to fix the ""Cancelation to event -" + choice_event.get_event_name() + "- successfull.");" that still shows up
     public T pop() {
         if (!isEmpty()) {      
             return stack[top--];
@@ -49,6 +47,11 @@ public class Generic_Stack<T> {
     public boolean isEmpty() {
         return top == -1;
     }
+    
+    
+    //source: https://www.youtube.com/watch?v=fptlqsesjxY  #10 Stack Implementation using Java Part 1 | Push Pop Peek Methods -
+    
+    
     
  /* trying to implement to check for duplicate participants 
     public boolean isParticipantExist(T[] participants, String email) {

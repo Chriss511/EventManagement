@@ -268,7 +268,7 @@ public class Test {
                 Event choice_event = event_BST.search(inp_event);
              
                 System.out.println("\nEnter your personal information");             
-                System.out.print("\nFull name:");
+                System.out.print("\nFull name: ");
                 String inp_user_name = scanner.nextLine();
                              
                 int inp_user_age;
@@ -292,7 +292,7 @@ public class Test {
                 String inp_user_addr;
                 
                 while (true) {
-                    System.out.print("\nEmail address:");
+                    System.out.print("\nEmail address: ");
                     inp_user_addr = scanner.nextLine();
                     if (inp_user_addr.contains("@")) {
                         break; 
@@ -303,7 +303,7 @@ public class Test {
                 
                 String inp_user_num;
                 while (true) {
-                    System.out.print("\nPhone number:");
+                    System.out.print("\nPhone number: ");
                     inp_user_num = scanner.nextLine();
                     if (inp_user_num.matches("[0-9]+")) {
                         break; 

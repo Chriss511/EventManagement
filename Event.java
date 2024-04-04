@@ -85,24 +85,28 @@ public class Event {
     public String get_event_info_list() {
         StringBuilder temp_build_registered = new StringBuilder();
         StringBuilder temp_build_unregistered = new StringBuilder();
-        
-        while (!(this.participant_list.isEmpty())) {
-            temp_build_registered.append(this.participant_list.pop());
+
+        while (!this.participant_list.isEmpty()) {
+            temp_build_registered.append(this.participant_list.pop().get_full_name()).append(" ");
         }
-        while (!(this.cancellation_list.isEmpty())) {
-            temp_build_unregistered.append(this.cancellation_list.pop()); 
+        while (!this.cancellation_list.isEmpty()) {
+            temp_build_unregistered.append(this.cancellation_list.pop().get_full_name()).append(" ");
         }
-        
-        String temp_registered = temp_build_registered.toString();
-        String temp_unregistered = temp_build_unregistered.toString();
+
+        String temp_registered = temp_build_registered.toString().trim(); // Trim to remove trailing space
+        String temp_unregistered = temp_build_unregistered.toString().trim(); // Trim to remove trailing space
 
         return "info:\n" + get_event_name() + "\n" 
-          + "starts at " + get_event_date() + " at " + get_time() + "\n" 
-          + "located at " + get_location() + " with a capacity of " + get_max_capacity() + "\n"
-          + "registered people: " + temp_registered + "\n"
-          + "unegistered people: " + temp_unregistered + "\n";
-          // TODO fix the fact that after pop we get a pointer to memory and not a rerevant data
+                + "starts at " + get_event_date() + " at " + get_time() + "\n" 
+                + "located at " + get_location() + " with a capacity of " + get_max_capacity() + "\n"
+                + "registered people: " + temp_registered + "\n"
+                + "unegistered people: " + temp_unregistered + "\n"
+                + "\n";
     }
+    
+    
+    
+    // TODO fix the fact that after pop we get a pointer to memory and not a relevant data
     public void update_capacity(){
          this.participant_list = new Generic_Stack(this.max_capacity);
          this.cancellation_list = new Generic_Stack(this.max_capacity);

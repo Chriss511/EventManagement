@@ -1,12 +1,14 @@
 info:
-awf
-starts at 2001-01-01 at 13:14
-located at afafa with a capacity of 1
+a1
+starts at 2000-01-01 at 13:13
+located at asd with a capacity of 1
 registered people: 
 unegistered people: 
+
 info:
-qwe
-starts at 2000-01-01 at 13:13
-located at adqw with a capacity of 1
-registered people: qfqfqfq
+a2
+starts at 2001-01-01 at 14:13
+located at gqg with a capacity of 2
+registered people: 
 unegistered people: 
+
