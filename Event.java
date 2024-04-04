@@ -96,15 +96,17 @@ public class Event {
         String temp_registered = temp_build_registered.toString().trim(); // Trim to remove trailing space
         String temp_unregistered = temp_build_unregistered.toString().trim(); // Trim to remove trailing space
 
-        return "info:\n" + get_event_name() + "\n" 
-                + "starts at " + get_event_date() + " at " + get_time() + "\n" 
-                + "located at " + get_location() + " with a capacity of " + get_max_capacity() + "\n"
-                + "registered people: " + temp_registered + "\n"
-                + "unegistered people: " + temp_unregistered + "\n"
+        return  "\n<><><><><><><><><><><><><><><><><><><><>"
+        		+ "\nEvent name: " + get_event_name() + "\n" 
+                + "Starts in: " + get_event_date() + " at " + get_time() + "\n" 
+                + "Location: " + get_location() + " with capacity for " + get_max_capacity() + "\n"
+                + "Registered participant(s): " + temp_registered + "\n"
+                + "Cancelled participant(s): " + temp_unregistered + "\n"
+                + "<><><><><><><><><><><><><><><><><><><><>" + "\n"
                 + "\n";
     }
     
-    
+   
     
     // TODO fix the fact that after pop we get a pointer to memory and not a relevant data
     public void update_capacity(){

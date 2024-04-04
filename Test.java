@@ -354,8 +354,41 @@ public class Test {
     // and add_to_participart_list methods>
     // {> Chris <} :TODO:
     // TODO add an display of all participants from registered and ask for conformation before "add_to_cancellation_list"
+    
+    
     public void un_register() {
         Scanner scanner = new Scanner(System.in);
+                     
+        while (true) {
+        	System.out.println("\n<><><><><><><><><><><><><><><><><>");
+            System.out.println("Select an event you are currently registered to:");
+            
+            event_BST.display();
+            
+            System.out.printf("\nChoose one: ");
+            String inp_event = scanner.nextLine();
+            
+            if (event_BST.search(inp_event) != null) {
+                Event choice_event = event_BST.search(inp_event);
+                choice_event.add_to_cancellation_list();
+                System.out.println("Cancelation to event -" + choice_event.get_event_name() + "- successfull.");
+                break;
+            } else {
+                System.out.println("\nWrong input. Please try again.");
+                break;
+            }
+        }       
+     }
+    
+    
+    /*
+    public void un_register() {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("\nEnter participant's name: ");
+        String participantName = scanner.nextLine();
+        
+        
 
         while (true) {
         	System.out.println("\n<><><><><><><><><><><><><><><><><>");
@@ -377,6 +410,7 @@ public class Test {
             }
         }       
      }
+     */
 
     // I Expect this to be used as a conformation that everything executed
     // it will ask to press enter(to let user to read the output)

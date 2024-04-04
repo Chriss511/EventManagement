@@ -1,14 +1,16 @@
-info:
-a1
-starts at 2000-01-01 at 13:13
-located at asd with a capacity of 1
-registered people: 
-unegistered people: 
 
-info:
-a2
-starts at 2001-01-01 at 14:13
-located at gqg with a capacity of 2
-registered people: 
-unegistered people: 
+<><><><><><><><><><><><><><><><><><><><>Event name: Event1
+Starts in: 2000-01-01 at 13:13
+Location: House with capacity for 2
+Registered people: name2 name1
+Cancelled people: 
+<><><><><><><><><><><><><><><><><><><><>
+
+
+<><><><><><><><><><><><><><><><><><><><>Event name: Event2
+Starts in: 2000-01-01 at 13:13
+Location: park with capacity for 2
+Registered people: name4 Name3
+Cancelled people: 
+<><><><><><><><><><><><><><><><><><><><>
 
